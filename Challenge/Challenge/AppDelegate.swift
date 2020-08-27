@@ -11,11 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var network: Network?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        getData()
         return true
+    }
+    
+    func getData() {
+        if network == nil {
+            self.network = Network()
+        }
+        if let nManager = self.network {
+            
+            nManager.makeRequest {results in
+                DispatchQueue.main.async(execute: {
+                    print(results)
+                })
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle
