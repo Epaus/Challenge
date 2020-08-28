@@ -23,6 +23,7 @@
 		CE8D6C9C24F880030061FB92 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9A24F87EB60061FB92 /* response.json */; };
 		CE8D6C9E24F880AE0061FB92 /* responseWithMissingField.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */; };
 		CE8D6C9F24F880CC0061FB92 /* responseWithMissingField.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */; };
+		CE8D6CA424F88D180061FB92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6CA324F88D180061FB92 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		CE8D6C9824F86EBC0061FB92 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		CE8D6C9A24F87EB60061FB92 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = responseWithMissingField.json; sourceTree = "<group>"; };
+		CE8D6CA324F88D180061FB92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +115,11 @@
 		CE8D6C5D24F845D60061FB92 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D6CA224F88C3D0061FB92 /* Controllers */,
+				CE8D6CA124F88C240061FB92 /* Views */,
+				CE8D6CA024F88C040061FB92 /* Project Files */,
 				CE8D6C9124F846D20061FB92 /* Model */,
 				CE8D6C8E24F846320061FB92 /* Network */,
-				CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */,
-				CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */,
-				CE8D6C6224F845D60061FB92 /* ViewController.swift */,
-				CE8D6C6424F845D70061FB92 /* Main.storyboard */,
-				CE8D6C6724F845DA0061FB92 /* Assets.xcassets */,
-				CE8D6C6924F845DA0061FB92 /* LaunchScreen.storyboard */,
-				CE8D6C6C24F845DA0061FB92 /* Info.plist */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -162,6 +160,35 @@
 				CE8D6C9624F848830061FB92 /* ViewModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CE8D6CA024F88C040061FB92 /* Project Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D6C6724F845DA0061FB92 /* Assets.xcassets */,
+				CE8D6C6C24F845DA0061FB92 /* Info.plist */,
+				CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */,
+				CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */,
+			);
+			name = "Project Files";
+			sourceTree = "<group>";
+		};
+		CE8D6CA124F88C240061FB92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D6C6424F845D70061FB92 /* Main.storyboard */,
+				CE8D6C6924F845DA0061FB92 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CE8D6CA224F88C3D0061FB92 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D6C6224F845D60061FB92 /* ViewController.swift */,
+				CE8D6CA324F88D180061FB92 /* DetailViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +332,7 @@
 				CE8D6C9024F8466C0061FB92 /* Network.swift in Sources */,
 				CE8D6C9724F848830061FB92 /* ViewModel.swift in Sources */,
 				CE8D6C6124F845D60061FB92 /* SceneDelegate.swift in Sources */,
+				CE8D6CA424F88D180061FB92 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

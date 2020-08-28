@@ -10,7 +10,12 @@ import Foundation
 
 struct Model : Codable {
     let name: String?
-    let image: String?
+    let imageUrl: String?
+    
+    enum CodingKeys: String, CodingKey {
+           case name
+           case imageUrl = "image"
+       }
     
     static func decode(data: Data) throws -> [Model] {
         let decoder = JSONDecoder()
