@@ -1,0 +1,34 @@
+//
+//  MainTableViewCell.swift
+//  Challenge
+//
+//  Created by Estelle Paus on 8/27/20.
+//  Copyright © 2020 Paus Productions. All rights reserved.
+//
+
+import UIKit
+
+class MainTableViewCell: UITableViewCell {
+    @IBOutlet weak var numberImageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+
+    var model: Model? {
+        didSet {
+            nameLabel.text = model?.name ?? "0"
+            numberImageView.downloadImage(withUrlString: model?.imageUrl ?? "")
+        }
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}

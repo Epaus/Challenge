@@ -15,9 +15,6 @@ class ViewController: UITableViewController {
     private var selectedModel: Model?
     
     
-    
-   
-    
     // MARK: - Lifecycle
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -58,13 +55,20 @@ class ViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView .dequeueReusableCell(withIdentifier: "mainCell")
+        var cell = tableView .dequeueReusableCell(withIdentifier: "mainCell") as? MainTableViewCell
         if (cell == nil) {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "mainCell")
+            cell = MainTableViewCell.init(style: .default, reuseIdentifier: ConstantText.cellId)
         }
         let model = self.viewModel.list?[indexPath.row]
-        cell?.textLabel?.text = model?.name
+        cell?.model = model
+       
         return cell ?? UITableViewCell()
+    }
+    
+   // MARK: TableView Delegate functions
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     
