@@ -11,8 +11,19 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let network = Network()
+        let viewModel = ViewModel.init(network: network)
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let rootViewController:ViewController = storyboard.instantiateViewController(withIdentifier: "MainVC") as UIViewController as! ViewController
+        rootViewController.viewModel = viewModel
+       
+        self.window?.rootViewController = rootViewController
+        
         return true
     }
     

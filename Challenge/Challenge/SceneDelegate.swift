@@ -17,22 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
         
         let network = Network()
         let viewModel = ViewModel.init(network: network)
+       
+
+       
         
-        let splitViewController =  UISplitViewController()
-        let masterVC = ViewController(viewModel: viewModel)
-        let detailVC = DetailViewController()
-        let masterNavController = UINavigationController(rootViewController: masterVC)
-        let detailNavController = UINavigationController(rootViewController: detailVC)
-        splitViewController.viewControllers = [masterNavController,detailNavController]
-        splitViewController.delegate = detailVC as? UISplitViewControllerDelegate
-        splitViewController.preferredDisplayMode = .allVisible
-        splitViewController.preferredPrimaryColumnWidthFraction = 0.50
-        
-        self.window!.rootViewController = splitViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

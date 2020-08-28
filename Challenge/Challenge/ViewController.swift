@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
     
-    private var viewModel: ViewModel
-    private var tableDataSource : UITableViewDataSource?
+    var viewModel: ViewModel
     private var detailViewController: DetailViewController?
     private var selectedModel: Model?
     
-    @IBOutlet weak var tableView: UITableView!
     
     
    
@@ -38,9 +36,38 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+        self.viewModel.getData(completion: { results in
+            DispatchQueue.main.async(execute: {
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    
+
+// MARK: Table Datasource Functions
+    
+    public override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.listCount()
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView .dequeueReusableCell(withIdentifier: "mainCell")
+        if (cell == nil) {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: "mainCell")
+        }
+        let model = self.viewModel.list?[indexPath.row]
+        cell?.textLabel?.text = model?.name
+        return cell ?? UITableViewCell()
     }
     
     
 }
+
 
