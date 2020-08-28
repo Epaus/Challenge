@@ -18,6 +18,11 @@
 		CE8D6C9024F8466C0061FB92 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C8F24F8466C0061FB92 /* Network.swift */; };
 		CE8D6C9524F847C50061FB92 /* ModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C9424F847C50061FB92 /* ModelResponse.swift */; };
 		CE8D6C9724F848830061FB92 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C9624F848830061FB92 /* ViewModel.swift */; };
+		CE8D6C9924F86EBC0061FB92 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C9824F86EBC0061FB92 /* NetworkTests.swift */; };
+		CE8D6C9B24F87EB60061FB92 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9A24F87EB60061FB92 /* response.json */; };
+		CE8D6C9C24F880030061FB92 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9A24F87EB60061FB92 /* response.json */; };
+		CE8D6C9E24F880AE0061FB92 /* responseWithMissingField.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */; };
+		CE8D6C9F24F880CC0061FB92 /* responseWithMissingField.json in Resources */ = {isa = PBXBuildFile; fileRef = CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,9 @@
 		CE8D6C8F24F8466C0061FB92 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE8D6C9424F847C50061FB92 /* ModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResponse.swift; sourceTree = "<group>"; };
 		CE8D6C9624F848830061FB92 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CE8D6C9824F86EBC0061FB92 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		CE8D6C9A24F87EB60061FB92 /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
+		CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = responseWithMissingField.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,9 @@
 			children = (
 				CE8D6C7524F845DA0061FB92 /* ChallengeTests.swift */,
 				CE8D6C7724F845DA0061FB92 /* Info.plist */,
+				CE8D6C9824F86EBC0061FB92 /* NetworkTests.swift */,
+				CE8D6C9A24F87EB60061FB92 /* response.json */,
+				CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */,
 			);
 			path = ChallengeTests;
 			sourceTree = "<group>";
@@ -257,6 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D6C9F24F880CC0061FB92 /* responseWithMissingField.json in Resources */,
+				CE8D6C9C24F880030061FB92 /* response.json in Resources */,
 				CE8D6C6B24F845DA0061FB92 /* LaunchScreen.storyboard in Resources */,
 				CE8D6C6824F845DA0061FB92 /* Assets.xcassets in Resources */,
 				CE8D6C6624F845D70061FB92 /* Main.storyboard in Resources */,
@@ -267,6 +280,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D6C9E24F880AE0061FB92 /* responseWithMissingField.json in Resources */,
+				CE8D6C9B24F87EB60061FB92 /* response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D6C9924F86EBC0061FB92 /* NetworkTests.swift in Sources */,
 				CE8D6C7624F845DA0061FB92 /* ChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

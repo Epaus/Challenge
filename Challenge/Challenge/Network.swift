@@ -9,34 +9,37 @@
 import Foundation
 import os.log
 
+protocol SessionProtocol {
+    
+     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
 enum Method: String {
     case get, post, put, delete
 }
 
 class Network {
-    let theURL = "https://dev.tapptic.com/test/json.php"
+    var session: SessionProtocol = URLSession.shared
+    var theURL: URL?
     var timeoutInterval = 30.0
     var method: Method { return .get }
     private var task: URLSessionDataTask?
     
-    func makeRequest(completion:  @escaping (_ list: [Model])->Void) {
+    func makeRequest(urlString: String, completion:  @escaping (_ list: [Model])->Void) {
         var models = [Model]()
-        guard let url = URL(string: theURL) else { return }
+        guard let url = URL(string: urlString) else { return }
+        theURL = url
         var request = URLRequest(url: url)
         var headers = [String: String]()
         headers["Accept"] = "application/json"
         request.allHTTPHeaderFields = headers
-      
-        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            
+        session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let jsonData = data {
                 if error != nil {
                     os_log("URLSession error %@",error.debugDescription)
                  return
              }
-             
              models = self.parseResponse(data: jsonData) ?? models
-                print(models)
              completion(models)
             }
         }).resume()
@@ -54,4 +57,6 @@ class Network {
         
         return nil
     }
+    
 }
+extension URLSession: SessionProtocol {}

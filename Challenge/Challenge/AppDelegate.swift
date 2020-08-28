@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.network = Network()
         }
         if let nManager = self.network {
-            
-            nManager.makeRequest {results in
+            nManager.makeRequest(urlString: "https://dev.tapptic.com/test/json.php") {results in
                 DispatchQueue.main.async(execute: {
                     print(results)
                 })
