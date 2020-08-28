@@ -199,8 +199,8 @@
 		CE8D6CA124F88C240061FB92 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D6C6424F845D70061FB92 /* Main.storyboard */,
 				CE682D2324F8C2FE00DDB1B7 /* MainTableViewCell.swift */,
+				CE8D6C6424F845D70061FB92 /* Main.storyboard */,
 				CE8D6C6924F845DA0061FB92 /* LaunchScreen.storyboard */,
 			);
 			name = Views;

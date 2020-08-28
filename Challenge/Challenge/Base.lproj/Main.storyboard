@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-294" y="9"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Numbers!-->
         <scene sceneID="5Jw-1q-9jZ">
             <objects>
-                <tableViewController storyboardIdentifier="MainVC" clearsSelectionOnViewWillAppear="NO" id="rrj-UO-4aq" customClass="ViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainVC" title="Numbers!" clearsSelectionOnViewWillAppear="NO" id="rrj-UO-4aq" customClass="ViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iKu-cY-SG9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,33 +38,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YtD-zq-Iwd">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="8Ar-ro-IUX"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-qy-OZh">
-                                            <rect key="frame" x="129" y="39.5" width="100" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="5n2-cX-XEd"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="i2W-JL-FTR">
+                                            <rect key="frame" x="76.5" y="20" width="167.5" height="60"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-qy-OZh">
+                                                    <rect key="frame" x="0.0" y="20" width="42.5" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42.5" id="uYe-bS-RiX" userLabel="width = 60"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YtD-zq-Iwd">
+                                                    <rect key="frame" x="107.5" y="0.0" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="32f-jG-YZ0" userLabel="width = 70"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Ze8-qy-OZh" firstAttribute="leading" secondItem="YtD-zq-Iwd" secondAttribute="trailing" constant="29" id="6R5-lc-jzE"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ze8-qy-OZh" secondAttribute="trailing" constant="20" symbolic="YES" id="Mgm-61-NKa"/>
-                                        <constraint firstItem="Ze8-qy-OZh" firstAttribute="centerY" secondItem="1MJ-28-Oaj" secondAttribute="centerY" id="RUj-d1-xJ4"/>
-                                        <constraint firstItem="YtD-zq-Iwd" firstAttribute="leading" secondItem="1MJ-28-Oaj" secondAttribute="leading" id="Vva-Ni-9mO"/>
-                                        <constraint firstItem="YtD-zq-Iwd" firstAttribute="top" secondItem="1MJ-28-Oaj" secondAttribute="top" id="b0D-pv-bg1"/>
-                                        <constraint firstAttribute="bottom" secondItem="YtD-zq-Iwd" secondAttribute="bottom" id="dl8-eq-feT"/>
+                                        <constraint firstItem="i2W-JL-FTR" firstAttribute="centerY" secondItem="1MJ-28-Oaj" secondAttribute="centerY" id="bbx-c2-jwN"/>
+                                        <constraint firstItem="i2W-JL-FTR" firstAttribute="centerX" secondItem="1MJ-28-Oaj" secondAttribute="centerX" id="dme-vB-0Yu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imageView" destination="YtD-zq-Iwd" id="GGk-qo-Rrl"/>
                                     <outlet property="nameLabel" destination="Ze8-qy-OZh" id="dU8-aJ-7b6"/>
                                     <outlet property="numberImageView" destination="YtD-zq-Iwd" id="ZiV-xS-Px6"/>
                                 </connections>
@@ -75,7 +75,7 @@
                             <outlet property="delegate" destination="rrj-UO-4aq" id="0Fe-HF-Kyn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="tEv-LO-FuZ"/>
+                    <navigationItem key="navigationItem" title="Numbers!" id="tEv-LO-FuZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="593-f5-d4y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
