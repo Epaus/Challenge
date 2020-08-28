@@ -10,7 +10,7 @@
 
 @implementation NSString (NSString_secureURL)
 
--(NSString *)secureUrl:(NSString*) url  {
++(NSString *)secureUrl:(NSString*) url  {
     NSString * newString = [url stringByReplacingOccurrencesOfString:@"http"
     withString:@"https"];
     return newString;

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (NSString_secureURL)
 
--(NSString *)secureUrl:(NSString*) url;
++(NSString *)secureUrl:(NSString*) url;
 
 @end
 
