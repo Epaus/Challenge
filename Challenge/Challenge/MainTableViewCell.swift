@@ -15,7 +15,9 @@ class MainTableViewCell: UITableViewCell {
     var model: Model? {
         didSet {
             nameLabel.text = model?.name ?? "0"
-            numberImageView.downloadImage(withUrlString: model?.imageUrl ?? "")
+            let url = model?.imageUrl as NSString?
+            let secureUrl = url?.secureUrl(url! as String) ?? ""
+            numberImageView.downloadImage(withUrlString: secureUrl )
         }
     }
     
