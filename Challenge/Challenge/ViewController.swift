@@ -55,13 +55,13 @@ class ViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView .dequeueReusableCell(withIdentifier: "mainCell") as? MainTableViewCell
+        var cell = tableView .dequeueReusableCell(withIdentifier: ConstantText.cellId) as? MainTableViewCell
         if (cell == nil) {
             cell = MainTableViewCell.init(style: .default, reuseIdentifier: ConstantText.cellId)
         }
         let model = self.viewModel.list?[indexPath.row]
         cell?.model = model
-       
+
         return cell ?? UITableViewCell()
     }
     
@@ -71,7 +71,33 @@ class ViewController: UITableViewController {
         return 100
     }
     
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if cell.isSelected == true {
+                    if cell.highlightedState == false {
+                        cell.contentView.backgroundColor = .green
+                        cell.highlightedState = true
+                    }
+                    else if cell.highlightedState == true {
+                        cell.contentView.backgroundColor = .white
+                        cell.highlightedState = false
+                    }
+                }
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+            cell.contentView.backgroundColor = UIColor.lightGray
+        }
+    }
 }
 
 
