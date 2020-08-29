@@ -40,11 +40,10 @@ class ViewController: UITableViewController {
             })
         })
     }
-    
-    
+}
 
 // MARK: Table Datasource Functions
-    
+extension ViewController {
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -61,12 +60,14 @@ class ViewController: UITableViewController {
         }
         let model = self.viewModel.list?[indexPath.row]
         cell?.model = model
-
+        
         return cell ?? UITableViewCell()
     }
-    
-   // MARK: TableView Delegate functions
-    
+}
+   
+
+// MARK: TableView Delegate functions
+extension ViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -99,5 +100,3 @@ class ViewController: UITableViewController {
         }
     }
 }
-
-
