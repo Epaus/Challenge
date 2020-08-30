@@ -32,7 +32,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.clearsSelectionOnViewWillAppear = true
         self.viewModel.getData(completion: { results in
             DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
