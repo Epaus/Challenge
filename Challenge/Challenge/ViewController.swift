@@ -111,9 +111,13 @@ extension ViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
-            cell.contentView.backgroundColor = UIColor.lightGray
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                cell.contentView.backgroundColor = .white
+                cell.highlightedState = false
+            }
         }
     }
+    
 }
