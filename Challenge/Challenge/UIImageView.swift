@@ -15,7 +15,7 @@ extension UIImageView {
 
     func downloadImage(withUrlString urlString: String) {
        
-        let url = URL(string: urlString)!
+        guard let url = URL(string: urlString) else {os_log("no image url"); return}
         
         if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
             self.image = imageFromCache

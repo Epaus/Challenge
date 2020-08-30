@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UITableViewController {
     
     var viewModel: ViewModel
-    private var detailViewController: DetailViewController?
     private var selectedModel: Model?
     
     
@@ -40,6 +39,16 @@ class ViewController: UITableViewController {
             })
         })
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let model = selectedModel else { return }
+//        if segue.identifier == ConstantText.toDetailVC {
+//            if let controller = segue.destination as? DetailViewController {
+//                controller.model = model
+//              }
+//          }
+//    }
+    
 }
 
 // MARK: Table Datasource Functions
@@ -92,6 +101,14 @@ extension ViewController {
                 }
             }
         }
+        
+        selectedModel = self.viewModel.list?[indexPath.row]
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.detailVC) as! DetailViewController
+        vc.model = selectedModel
+        showDetailViewController(vc, sender: self)
+        
     }
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
