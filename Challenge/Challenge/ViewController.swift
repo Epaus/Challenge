@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UITableViewController {
     
     var viewModel: ViewModel
@@ -32,6 +33,7 @@ class ViewController: UITableViewController {
     
      override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(showNetworkAlert), name: .noConnectivityNotification, object: nil)
         self.clearsSelectionOnViewWillAppear = true
         self.splitViewController?.maximumPrimaryColumnWidth = UIScreen.main.bounds.width/2.0
        
@@ -42,15 +44,24 @@ class ViewController: UITableViewController {
         })
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let model = selectedModel else { return }
-//        if segue.identifier == ConstantText.toDetailVC {
-//            if let controller = segue.destination as? DetailViewController {
-//                controller.model = model
-//              }
-//          }
-//    }
-    
+    @objc func showNetworkAlert() {
+        
+        let tryAgainAction = UIAlertAction.init(title: "Try Again", style: .default, handler:{(alert: UIAlertAction!) in
+            weak var wvm = self.viewModel
+            wvm?.getData(completion: { (results) in
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            })
+        })
+        
+        let actions = [tryAgainAction]
+        
+        let alert = AlertController.createAlert(title: "No Connectivity", message: "You are not connected to the internet.", actions: actions)
+        
+        self.splitViewController?.present(alert, animated: true)
+    }
+        
 }
 
 // MARK: Table Datasource Functions
@@ -91,22 +102,13 @@ extension ViewController {
         
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
             if UIDevice.current.userInterfaceIdiom == .pad {
-                if cell.isSelected == true {
-                    if cell.highlightedState == false {
-                        cell.contentView.backgroundColor = .green
-                        cell.highlightedState = true
-                    }
-                    else if cell.highlightedState == true {
-                        cell.contentView.backgroundColor = .white
-                        cell.highlightedState = false
-                    }
-                }
+                setIpadHighlight(forCell: cell)
             }
         }
         
         selectedModel = self.viewModel.list?[indexPath.row]
+        
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
         let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.detailVC) as! DetailViewController
         vc.model = selectedModel
         showDetailViewController(vc, sender: self)
@@ -116,6 +118,19 @@ extension ViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
             if UIDevice.current.userInterfaceIdiom == .pad {
+                cell.contentView.backgroundColor = .white
+                cell.highlightedState = false
+            }
+        }
+    }
+    
+    private func setIpadHighlight(forCell cell: MainTableViewCell) {
+        if cell.isSelected == true {
+            if cell.highlightedState == false {
+                cell.contentView.backgroundColor = .systemTeal
+                cell.highlightedState = true
+            }
+            else if cell.highlightedState == true {
                 cell.contentView.backgroundColor = .white
                 cell.highlightedState = false
             }

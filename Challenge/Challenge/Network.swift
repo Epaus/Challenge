@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import UIKit
 import os.log
+import SystemConfiguration
 
 protocol SessionProtocol {
     
@@ -23,9 +25,12 @@ class Network {
     var theURL: URL?
     var timeoutInterval = 30.0
     var method: Method { return .get }
-    private var task: URLSessionDataTask?
+   // private var task: URLSessionDataTask?
     
     func makeRequest(urlString: String, completion:  @escaping (_ list: [Model])->Void) {
+        
+        if (connectedToNetwork() == true) {
+        
         var models = [Model]()
         guard let url = URL(string: urlString) else { return }
         theURL = url
@@ -43,6 +48,11 @@ class Network {
              completion(models)
             }
         }).resume()
+            
+        } else {
+               NotificationCenter.default.post(name: .noConnectivityNotification, object: nil )
+            }
+        
     }
 
     func parseResponse(data: Data) -> [Model]? {
@@ -52,11 +62,36 @@ class Network {
             return response
             
         } catch {
-            print("JSONDecoder error \(error)")
+            os_log("JSONDecoder error %@",error.localizedDescription)
         }
         
         return nil
     }
+    
+    func connectedToNetwork() -> Bool {
+
+             var zeroAddress = sockaddr_in()
+             zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
+             zeroAddress.sin_family = sa_family_t(AF_INET)
+
+             guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
+                 $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                     SCNetworkReachabilityCreateWithAddress(nil, $0)
+                 }
+             }) else {
+                 return false
+             }
+
+             var flags: SCNetworkReachabilityFlags = []
+             if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
+                 return false
+             }
+
+             let isReachable = flags.contains(.reachable)
+             let needsConnection = flags.contains(.connectionRequired)
+
+             return (isReachable && !needsConnection)
+         }
     
 }
 extension URLSession: SessionProtocol {}

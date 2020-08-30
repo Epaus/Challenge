@@ -12,6 +12,9 @@
 		CE682D2924F8CED700DDB1B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2824F8CED700DDB1B7 /* Constants.swift */; };
 		CE682D6E24F9823100DDB1B7 /* NSString+NSString_secureURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */; };
 		CE682D7224FB401100DDB1B7 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D7124FB401100DDB1B7 /* SplitViewController.swift */; };
+		CE682D7524FB4ADA00DDB1B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE682D7424FB4ADA00DDB1B7 /* SystemConfiguration.framework */; };
+		CE682D7824FB51D800DDB1B7 /* Notification-Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D7724FB51D800DDB1B7 /* Notification-Name.swift */; };
+		CE682D7A24FB55A500DDB1B7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D7924FB55A500DDB1B7 /* AlertController.swift */; };
 		CE8D6C5F24F845D60061FB92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */; };
 		CE8D6C6124F845D60061FB92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */; };
 		CE8D6C6324F845D60061FB92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C6224F845D60061FB92 /* ViewController.swift */; };
@@ -56,6 +59,9 @@
 		CE682D6C24F9823100DDB1B7 /* NSString+NSString_secureURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_secureURL.h"; sourceTree = "<group>"; };
 		CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_secureURL.m"; sourceTree = "<group>"; };
 		CE682D7124FB401100DDB1B7 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		CE682D7424FB4ADA00DDB1B7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CE682D7724FB51D800DDB1B7 /* Notification-Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification-Name.swift"; sourceTree = "<group>"; };
+		CE682D7924FB55A500DDB1B7 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CE8D6C5B24F845D60061FB92 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE682D7524FB4ADA00DDB1B7 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +115,26 @@
 			isa = PBXGroup;
 			children = (
 				CE682D2624F8C42700DDB1B7 /* UIImageView.swift */,
+				CE682D7724FB51D800DDB1B7 /* Notification-Name.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		CE682D7324FB4ADA00DDB1B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE682D7424FB4ADA00DDB1B7 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE682D7B24FB5E2400DDB1B7 /* ObjC Categories */ = {
+			isa = PBXGroup;
+			children = (
 				CE682D6C24F9823100DDB1B7 /* NSString+NSString_secureURL.h */,
 				CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */,
 			);
-			name = Extensions;
+			name = "ObjC Categories";
 			sourceTree = "<group>";
 		};
 		CE8D6C5224F845D60061FB92 = {
@@ -121,6 +144,7 @@
 				CE8D6C7424F845DA0061FB92 /* ChallengeTests */,
 				CE8D6C7F24F845DA0061FB92 /* ChallengeUITests */,
 				CE8D6C5C24F845D60061FB92 /* Products */,
+				CE682D7324FB4ADA00DDB1B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +161,7 @@
 		CE8D6C5D24F845D60061FB92 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				CE682D7B24FB5E2400DDB1B7 /* ObjC Categories */,
 				CE682D2524F8C40600DDB1B7 /* Extensions */,
 				CE8D6CA224F88C3D0061FB92 /* Controllers */,
 				CE8D6CA124F88C240061FB92 /* Views */,
@@ -214,6 +239,7 @@
 				CE8D6C6224F845D60061FB92 /* ViewController.swift */,
 				CE8D6CA324F88D180061FB92 /* DetailViewController.swift */,
 				CE682D7124FB401100DDB1B7 /* SplitViewController.swift */,
+				CE682D7924FB55A500DDB1B7 /* AlertController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -357,6 +383,8 @@
 				CE8D6C6324F845D60061FB92 /* ViewController.swift in Sources */,
 				CE682D2724F8C42700DDB1B7 /* UIImageView.swift in Sources */,
 				CE8D6C9524F847C50061FB92 /* ModelResponse.swift in Sources */,
+				CE682D7824FB51D800DDB1B7 /* Notification-Name.swift in Sources */,
+				CE682D7A24FB55A500DDB1B7 /* AlertController.swift in Sources */,
 				CE682D2424F8C2FE00DDB1B7 /* MainTableViewCell.swift in Sources */,
 				CE8D6C5F24F845D60061FB92 /* AppDelegate.swift in Sources */,
 				CE682D2924F8CED700DDB1B7 /* Constants.swift in Sources */,
