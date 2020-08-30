@@ -30,9 +30,11 @@ class ViewController: UITableViewController {
         super.init(coder: coder)
     }
     
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = true
+        self.splitViewController?.maximumPrimaryColumnWidth = UIScreen.main.bounds.width/2.0
+       
         self.viewModel.getData(completion: { results in
             DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()

@@ -151,7 +151,7 @@
         <!--Split View Controller-->
         <scene sceneID="Ck7-NJ-WEF">
             <objects>
-                <splitViewController id="FZO-iM-FF1" sceneMemberID="viewController">
+                <splitViewController id="FZO-iM-FF1" customClass="SplitViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="DY2-In-YZ1" kind="relationship" relationship="masterViewController" id="vRu-qT-hsY"/>
                         <segue destination="WOj-5N-zX7" kind="relationship" relationship="detailViewController" id="X9L-Kh-GV4"/>

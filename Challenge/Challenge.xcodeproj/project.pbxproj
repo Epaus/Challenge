@@ -11,6 +11,7 @@
 		CE682D2724F8C42700DDB1B7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2624F8C42700DDB1B7 /* UIImageView.swift */; };
 		CE682D2924F8CED700DDB1B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2824F8CED700DDB1B7 /* Constants.swift */; };
 		CE682D6E24F9823100DDB1B7 /* NSString+NSString_secureURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */; };
+		CE682D7224FB401100DDB1B7 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D7124FB401100DDB1B7 /* SplitViewController.swift */; };
 		CE8D6C5F24F845D60061FB92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */; };
 		CE8D6C6124F845D60061FB92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */; };
 		CE8D6C6324F845D60061FB92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6C6224F845D60061FB92 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		CE682D6B24F9823100DDB1B7 /* Challenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Challenge-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE682D6C24F9823100DDB1B7 /* NSString+NSString_secureURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_secureURL.h"; sourceTree = "<group>"; };
 		CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_secureURL.m"; sourceTree = "<group>"; };
+		CE682D7124FB401100DDB1B7 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		CE8D6C5B24F845D60061FB92 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				CE8D6C6224F845D60061FB92 /* ViewController.swift */,
 				CE8D6CA324F88D180061FB92 /* DetailViewController.swift */,
+				CE682D7124FB401100DDB1B7 /* SplitViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				CE682D6E24F9823100DDB1B7 /* NSString+NSString_secureURL.m in Sources */,
 				CE8D6C6124F845D60061FB92 /* SceneDelegate.swift in Sources */,
 				CE8D6CA424F88D180061FB92 /* DetailViewController.swift in Sources */,
+				CE682D7224FB401100DDB1B7 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
