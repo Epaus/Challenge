@@ -22,18 +22,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPU-ag-Kj1">
-                                <rect key="frame" x="100" y="100" width="568" height="824"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IPU-ag-Kj1" firstAttribute="top" secondItem="qXb-4q-Q02" secondAttribute="top" constant="100" id="9Nq-Oh-Trq"/>
-                            <constraint firstItem="qXb-4q-Q02" firstAttribute="bottom" secondItem="IPU-ag-Kj1" secondAttribute="bottom" constant="100" id="Bqz-AF-7eQ"/>
+                            <constraint firstItem="qXb-4q-Q02" firstAttribute="trailing" secondItem="IPU-ag-Kj1" secondAttribute="trailing" id="4gI-j6-a2z"/>
+                            <constraint firstItem="IPU-ag-Kj1" firstAttribute="top" secondItem="qXb-4q-Q02" secondAttribute="top" id="Awn-pT-IRP"/>
+                            <constraint firstItem="qXb-4q-Q02" firstAttribute="bottom" secondItem="IPU-ag-Kj1" secondAttribute="bottom" id="DsH-D2-IQv"/>
                             <constraint firstItem="x0c-eg-CeO" firstAttribute="centerX" secondItem="0qX-q8-0BZ" secondAttribute="centerX" id="ItU-OR-9Ki"/>
                             <constraint firstItem="x0c-eg-CeO" firstAttribute="centerY" secondItem="0qX-q8-0BZ" secondAttribute="centerY" id="cnv-vD-U4U"/>
-                            <constraint firstItem="qXb-4q-Q02" firstAttribute="trailing" secondItem="IPU-ag-Kj1" secondAttribute="trailing" constant="100" id="lTq-Oh-ayh"/>
-                            <constraint firstItem="IPU-ag-Kj1" firstAttribute="leading" secondItem="qXb-4q-Q02" secondAttribute="leading" constant="100" id="mrf-pO-9vQ"/>
+                            <constraint firstItem="IPU-ag-Kj1" firstAttribute="leading" secondItem="qXb-4q-Q02" secondAttribute="leading" id="uKX-BX-GHj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qXb-4q-Q02"/>
                     </view>
@@ -48,7 +48,7 @@
         <!--Custom Page View Controller-->
         <scene sceneID="grm-Dp-4JF">
             <objects>
-                <pageViewController restorationIdentifier="CustomPageViewController" storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Pd6-Pn-Mnw" customClass="CustomPageViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController restorationIdentifier="CustomPageViewController" storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pd6-Pn-Mnw" customClass="CustomPageViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiY-Gu-HlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="419" y="57"/>
@@ -62,13 +62,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="YsL-YQ-ZvO">
-                                <rect key="frame" x="100" y="100" width="568" height="824"/>
+                                <rect key="frame" x="110" y="168" width="548" height="688"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2O2-RO-2xw">
-                                        <rect key="frame" x="10" y="0.0" width="548" height="541.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="548" height="541.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-RK-Ye8">
-                                        <rect key="frame" x="214.5" y="589.5" width="139.5" height="234.5"/>
+                                        <rect key="frame" x="204.5" y="589.5" width="139.5" height="98.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="59"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -78,10 +78,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="top" secondItem="anc-co-Psj" secondAttribute="top" constant="100" id="FM2-QX-uFr"/>
-                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="leading" secondItem="anc-co-Psj" secondAttribute="leading" constant="100" id="Lbc-dg-r4B"/>
-                            <constraint firstItem="anc-co-Psj" firstAttribute="bottom" secondItem="YsL-YQ-ZvO" secondAttribute="bottom" constant="100" id="aTX-x3-Qn4"/>
-                            <constraint firstItem="anc-co-Psj" firstAttribute="trailing" secondItem="YsL-YQ-ZvO" secondAttribute="trailing" constant="100" id="tAB-RD-Cfl"/>
+                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="centerX" secondItem="VSU-YJ-qiC" secondAttribute="centerX" id="9EK-8y-7GT"/>
+                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="top" secondItem="anc-co-Psj" secondAttribute="top" constant="168" id="9h8-U6-b5M"/>
+                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="leading" secondItem="anc-co-Psj" secondAttribute="leading" constant="110" id="KWK-XU-q4U"/>
+                            <constraint firstItem="2O2-RO-2xw" firstAttribute="leading" secondItem="anc-co-Psj" secondAttribute="leading" constant="110" id="qAR-T3-QjW"/>
+                            <constraint firstItem="YsL-YQ-ZvO" firstAttribute="centerY" secondItem="VSU-YJ-qiC" secondAttribute="centerY" id="qdH-m4-had"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="anc-co-Psj"/>
                     </view>

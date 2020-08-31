@@ -31,6 +31,15 @@ class DetailViewController: UIViewController {
         pageViewController.didMove(toParent: self)
         contentView.addSubview(pageViewController.view)
         
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: pageViewController.view.safeAreaLayoutGuide.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: pageViewController.view.safeAreaLayoutGuide.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: pageViewController.view.safeAreaLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: pageViewController.view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
         guard let startingViewController = detailViewControllerAt(index: self.currentViewControllerIndex) else { return }
         
         pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
