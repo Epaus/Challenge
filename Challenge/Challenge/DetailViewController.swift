@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MasterViewUpdateProtocol {
-    func updateCellAt(index: Int)
+    func updateCellHighlightAt(offIndex: Int, onIndex: Int)
 }
 
 class DetailViewController: UIViewController {
@@ -79,37 +79,38 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let detailViewController = viewController as? DataViewController
-        guard var currentIndex = detailViewController?.index else { return nil }
+        guard let currentIndex = detailViewController?.index else { return nil }
+        print("viewControllerBefore currentIndex = \(currentIndex)")
         currentViewControllerIndex = currentIndex
-        if currentIndex == 0 {
+       
+        print("viewControllerBefore::currentViewControllerIndex = \(currentViewControllerIndex)")
+        let nextIndex = currentIndex - 1
+        if nextIndex == -1 {
+           delegate?.updateCellHighlightAt(offIndex: currentViewControllerIndex + 1 , onIndex: currentViewControllerIndex)
             return nil
         }
-        currentIndex -= 1
         let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
-        nextController?.model = viewModel?.list?[currentIndex]
-        nextController?.index = currentIndex
-        
-        delegate?.updateCellAt(index: currentIndex)
-        
+        nextController?.model = viewModel?.list?[nextIndex]
+        nextController?.index = nextIndex
+        delegate?.updateCellHighlightAt(offIndex: currentViewControllerIndex + 1 , onIndex: currentViewControllerIndex)
+       
         return nextController
-        
-        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let detailViewController = viewController as? DataViewController
-        guard var currentIndex = detailViewController?.index else { return nil }
+        guard let currentIndex = detailViewController?.index else { return nil }
         currentViewControllerIndex = currentIndex
         if currentIndex >= viewModel?.listCount() ?? 0  {
             return nil
         }
-        currentIndex += 1
-        let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
-        nextController?.model = viewModel?.list?[currentIndex]
-        nextController?.index = currentIndex
+        let nextIndex = currentIndex + 1
+        let nextController: DataViewController? = detailViewControllerAt(index: nextIndex)
+        nextController?.model = viewModel?.list?[nextIndex]
+        nextController?.index = nextIndex
         
-        delegate?.updateCellAt(index: currentIndex)
+        delegate?.updateCellHighlightAt(offIndex: currentViewControllerIndex-1, onIndex: currentViewControllerIndex)
         
         return nextController
     }

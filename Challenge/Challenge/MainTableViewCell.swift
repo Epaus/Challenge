@@ -23,6 +23,11 @@ class MainTableViewCell: UITableViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        self.highlightedState = false
+        self.backgroundColor = .white
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

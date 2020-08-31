@@ -15,7 +15,7 @@ extension UIImageView {
 
     func downloadImage(withUrlString urlString: String) {
        
-        guard let url = URL(string: urlString) else {os_log("no image url"); return}
+        guard let url = URL(string: urlString) else { return }
         
         if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
             self.image = imageFromCache
@@ -25,7 +25,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             
             if error != nil {
-                debugPrint(String(describing: error?.localizedDescription))
+                 os_log("URLSession error in downloadImage %@",error.debugDescription)
                 return
             }
             
