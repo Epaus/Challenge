@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol MasterViewUpdateProtocol {
+    func updateCellAt(index: Int)
+}
+
 class DetailViewController: UIViewController {
-    // what he calls ViewController
+    
+    var delegate: MasterViewUpdateProtocol?
 
   
     @IBOutlet weak var contentView: UIView!
@@ -83,12 +88,16 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
         let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
         nextController?.model = viewModel?.list?[currentIndex]
         nextController?.index = currentIndex
+        
+        delegate?.updateCellAt(index: currentIndex)
+        
         return nextController
         
         
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
         let detailViewController = viewController as? DataViewController
         guard var currentIndex = detailViewController?.index else { return nil }
         currentViewControllerIndex = currentIndex
@@ -99,6 +108,9 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
         let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
         nextController?.model = viewModel?.list?[currentIndex]
         nextController?.index = currentIndex
+        
+        delegate?.updateCellAt(index: currentIndex)
+        
         return nextController
     }
     

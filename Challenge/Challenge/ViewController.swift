@@ -112,6 +112,7 @@ extension ViewController {
         let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.detailVC) as! DetailViewController
         vc.viewModel = self.viewModel
         vc.currentViewControllerIndex = indexPath.row
+        vc.delegate = self
         showDetailViewController(vc, sender: self)
         
     }
@@ -137,5 +138,14 @@ extension ViewController {
             }
         }
     }
+    
+}
+extension ViewController: MasterViewUpdateProtocol {
+    func updateCellAt(index: Int) {
+        if let cell = tableView.cellForRow(at: IndexPath.init(item: index, section: 0)) as? MainTableViewCell {
+            
+        }
+    }
+    
     
 }
