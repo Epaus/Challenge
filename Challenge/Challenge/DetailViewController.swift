@@ -80,10 +80,8 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let detailViewController = viewController as? DataViewController
         guard let currentIndex = detailViewController?.index else { return nil }
-        print("viewControllerBefore currentIndex = \(currentIndex)")
         currentViewControllerIndex = currentIndex
        
-        print("viewControllerBefore::currentViewControllerIndex = \(currentViewControllerIndex)")
         let nextIndex = currentIndex - 1
         if nextIndex == -1 {
            delegate?.updateCellHighlightAt(offIndex: currentViewControllerIndex + 1 , onIndex: currentViewControllerIndex)
