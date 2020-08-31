@@ -37,11 +37,8 @@ class MainTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-      
-        self.highlightedState = false
-        self.backgroundColor = .white
-        self.model = nil
-        
+        highlightedState = false
+        contentView.backgroundColor = .white
+        super.prepareForReuse()
     }
-
 }
