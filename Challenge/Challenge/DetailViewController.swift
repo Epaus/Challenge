@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
     func detailViewControllerAt(index: Int) -> DataViewController? {
         
         guard let vm = viewModel else { return nil }
-        if index >= vm.listCount() || index == 0 {
+        if index >= vm.listCount() || index < 0 {
             return nil
         }
         
@@ -56,6 +56,7 @@ class DetailViewController: UIViewController {
         guard let dataViewController: DataViewController = storyboard.instantiateViewController(withIdentifier: String(describing: DataViewController.self)) as? DataViewController else { return nil }
         
         dataViewController.model = vm.list?[index]
+        dataViewController.index = index
         return dataViewController
     }
     
@@ -79,7 +80,10 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
             return nil
         }
         currentIndex -= 1
-        return detailViewControllerAt(index: currentIndex)
+        let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
+        nextController?.model = viewModel?.list?[currentIndex]
+        nextController?.index = currentIndex
+        return nextController
         
         
     }
@@ -92,7 +96,10 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
             return nil
         }
         currentIndex += 1
-        return detailViewControllerAt(index: currentIndex)
+        let nextController: DataViewController? = detailViewControllerAt(index: currentIndex)
+        nextController?.model = viewModel?.list?[currentIndex]
+        nextController?.index = currentIndex
+        return nextController
     }
     
 }
