@@ -110,7 +110,8 @@ extension ViewController {
         
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.detailVC) as! DetailViewController
-        vc.model = selectedModel
+        vc.viewModel = self.viewModel
+        vc.currentViewControllerIndex = indexPath.row
         showDetailViewController(vc, sender: self)
         
     }

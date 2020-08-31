@@ -12,5 +12,6 @@ struct ConstantText {
     static let cellId = "mainCell"
     static let detailVC = "detailVC"
     static let mainVC = "mainVC"
+    static let customPageViewController = "customPageViewController"
     
 }
