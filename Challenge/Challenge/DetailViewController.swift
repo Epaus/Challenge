@@ -15,17 +15,28 @@ protocol MasterViewUpdateProtocol {
 class DetailViewController: UIViewController {
     
     var delegate: MasterViewUpdateProtocol?
-
-  
+    var navigationBar: UINavigationBar?
+    
+    
     @IBOutlet weak var contentView: UIView!
     
     var viewModel: ViewModel?
     var currentViewControllerIndex: Int = 0
     
     override func viewDidLoad() {
+        navigationBar = UINavigationBar.init(frame: CGRect(x:0,y:0,width:UIScreen.main.bounds.width, height: 40.0))
+        guard let navBar = navigationBar else { return }
+        self.view.addSubview(navBar);
+        navigationItem.leftBarButtonItem =
+            splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
         
-       configurePageViewController()
+        navBar.setItems([navigationItem], animated: false);
+        //configureNavigationBar()
+        configurePageViewController()
     }
+    
+    
     
     func configurePageViewController() {
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -49,7 +60,7 @@ class DetailViewController: UIViewController {
         
         pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
     }
-       
+    
     func detailViewControllerAt(index: Int) -> DataViewController? {
         
         guard let vm = viewModel else { return nil }
@@ -64,6 +75,43 @@ class DetailViewController: UIViewController {
         dataViewController.index = index
         return dataViewController
     }
+    
+    // MARK:  NavigationBar
+   
+    private func configureNavigationBar() {
+//        if navigationBar == nil {
+//                    navigationBar = UINavigationBar.init(frame: .zero)
+//                          guard let navBar = navigationBar else { return }
+//                          self.view.addSubview(navBar);
+//
+//                          let navItem = UINavigationItem(title: "");
+//            let backItem = UIBarButtonItem.init(barButtonSystemItem: , target: <#T##Any?#>, action: <#T##Selector?#>)
+//
+//                          navItem.leftBarButtonItem = backItem
+//                          navBar.setItems([navItem], animated: false);
+//        }
+    }
+  
+    
+    private func detectOrientation() {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            navigationBar?.isHidden = true
+        } else {
+            print("Portrait")
+            navigationBar?.isHidden = false
+        }
+    }
+   
+    
+    override internal func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        detectOrientation()
+    }
+    
+    @objc private func goBack() {
+           print("goBack")
+       }
+          
     
 }
 

@@ -62,6 +62,21 @@ class ViewController: UITableViewController {
         
         self.splitViewController?.present(alert, animated: true)
     }
+    
+//    private func detectOrientation() {
+//         if UIDevice.current.orientation.isLandscape {
+//             print("Landscape")
+//            self.view.setNeedsLayout()
+//         } else {
+//             print("Portrait")
+//             navigationBar?.isHidden = false
+//         }
+//     }
+    
+     
+     override internal func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+         self.view.setNeedsLayout()
+     }
         
 }
 

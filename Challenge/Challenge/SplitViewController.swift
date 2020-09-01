@@ -18,5 +18,7 @@ class SplitViewController: UISplitViewController {
     override func viewDidLayoutSubviews() {
         self.preferredPrimaryColumnWidthFraction = 0.50
     }
+    
+    
 
 }
