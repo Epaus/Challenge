@@ -115,8 +115,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="i2W-JL-FTR">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="65" id="i2W-JL-FTR">
                                             <rect key="frame" x="76.5" y="20" width="167.5" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-qy-OZh">
                                                     <rect key="frame" x="0.0" y="20" width="42.5" height="20.5"/>
@@ -137,10 +138,6 @@
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="i2W-JL-FTR" firstAttribute="centerY" secondItem="1MJ-28-Oaj" secondAttribute="centerY" id="bbx-c2-jwN"/>
-                                        <constraint firstItem="i2W-JL-FTR" firstAttribute="centerX" secondItem="1MJ-28-Oaj" secondAttribute="centerX" id="dme-vB-0Yu"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="Ze8-qy-OZh" id="dU8-aJ-7b6"/>
