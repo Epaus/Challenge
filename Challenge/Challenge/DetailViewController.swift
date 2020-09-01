@@ -24,15 +24,7 @@ class DetailViewController: UIViewController {
     var currentViewControllerIndex: Int = 0
     
     override func viewDidLoad() {
-        navigationBar = UINavigationBar.init(frame: CGRect(x:0,y:0,width:UIScreen.main.bounds.width, height: 40.0))
-        guard let navBar = navigationBar else { return }
-        self.view.addSubview(navBar);
-        navigationItem.leftBarButtonItem =
-            splitViewController?.displayModeButtonItem
-        navigationItem.leftItemsSupplementBackButton = true
-        
-        navBar.setItems([navigationItem], animated: false);
-        //configureNavigationBar()
+        configureNavigationBar()
         configurePageViewController()
     }
     
@@ -79,17 +71,15 @@ class DetailViewController: UIViewController {
     // MARK:  NavigationBar
    
     private func configureNavigationBar() {
-//        if navigationBar == nil {
-//                    navigationBar = UINavigationBar.init(frame: .zero)
-//                          guard let navBar = navigationBar else { return }
-//                          self.view.addSubview(navBar);
-//
-//                          let navItem = UINavigationItem(title: "");
-//            let backItem = UIBarButtonItem.init(barButtonSystemItem: , target: <#T##Any?#>, action: <#T##Selector?#>)
-//
-//                          navItem.leftBarButtonItem = backItem
-//                          navBar.setItems([navItem], animated: false);
-//        }
+        navigationBar = UINavigationBar.init(frame: CGRect(x:0,y:0,width:UIScreen.main.bounds.width, height: 40.0))
+        guard let navBar = navigationBar else { return }
+        self.view.addSubview(navBar);
+        navigationItem.leftBarButtonItem =
+            splitViewController?.displayModeButtonItem
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = "displayModeButtonItem"
+        navigationItem.leftItemsSupplementBackButton = true
+        
+        navBar.setItems([navigationItem], animated: false);
     }
   
     

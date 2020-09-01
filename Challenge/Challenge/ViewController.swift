@@ -34,6 +34,7 @@ class ViewController: UITableViewController {
     
      override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.accessibilityIdentifier = ConstantText.master_tableview
         self.tableView.autoresizesSubviews = true
        
         NotificationCenter.default.addObserver(self, selector: #selector(showNetworkAlert), name: .noConnectivityNotification, object: nil)
@@ -118,9 +119,7 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-      print("didSelect---->>>>>")
         if let currentCell = currentlySelectedCell {
-            print("currentCell = \(String(describing: currentCell.model?.name))")
             turnOff(cell: currentCell)
         }
         
@@ -144,16 +143,14 @@ extension ViewController {
         vc.currentViewControllerIndex = indexPath.row
         vc.delegate = self
         showDetailViewController(vc, sender: self)
-        
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
             cell.model?.isSelected = false
-            print("didDeselect ->name \(cell.model?.name), model.isSelected = \(cell.model?.isSelected)")
+
             if UIDevice.current.userInterfaceIdiom == .pad {
                 cell.contentView.backgroundColor = .white
-               // cell.highlightedState = false
                 cell.setNeedsLayout()
             }
         }
@@ -162,10 +159,8 @@ extension ViewController {
     private func setIpadHighlight(forCell cell: MainTableViewCell) {
         if cell.model?.isSelected == true {
             cell.contentView.backgroundColor = .systemTeal
-           // cell.highlightedState = true
         } else {
             cell.contentView.backgroundColor = .white
-           // cell.highlightedState = false
         }
     }
     
@@ -199,6 +194,4 @@ extension ViewController: MasterViewUpdateProtocol {
             currentlySelectedCell = cell
         }
     }
-    
-    
 }

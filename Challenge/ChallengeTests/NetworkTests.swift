@@ -64,7 +64,7 @@ class NetworkTests: XCTestCase {
                  if let data = NSData(contentsOfFile: path) {
                      let nm = Network()
                      if let results = nm.parseResponse(data: data as Data) {
-                         let array = results as [Model]
+                         let array = results as [DTOModel]
                          XCTAssertEqual(array.count, 4)
                      }
                  }
@@ -81,7 +81,7 @@ class NetworkTests: XCTestCase {
                     if let data = NSData(contentsOfFile: path) {
                         let nm = Network()
                         if let results = nm.parseResponse(data: data as Data) {
-                            let array = results as [Model]
+                            let array = results as [DTOModel]
                             XCTAssertEqual(array.count, 4)
                             let model = array[0]
                             let emptyField = model.name
