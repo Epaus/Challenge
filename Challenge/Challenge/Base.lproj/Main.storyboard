@@ -15,15 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0c-eg-CeO">
-                                <rect key="frame" x="255" y="475" width="258.5" height="74"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="62"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPU-ag-Kj1">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0c-eg-CeO">
+                                        <rect key="frame" x="255" y="475" width="258.5" height="74"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="62"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="x0c-eg-CeO" firstAttribute="centerY" secondItem="IPU-ag-Kj1" secondAttribute="centerY" id="jF1-no-Uyu"/>
+                                    <constraint firstItem="x0c-eg-CeO" firstAttribute="centerX" secondItem="IPU-ag-Kj1" secondAttribute="centerX" id="vVa-rx-Ywd"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,8 +37,6 @@
                             <constraint firstItem="qXb-4q-Q02" firstAttribute="trailing" secondItem="IPU-ag-Kj1" secondAttribute="trailing" id="4gI-j6-a2z"/>
                             <constraint firstItem="IPU-ag-Kj1" firstAttribute="top" secondItem="qXb-4q-Q02" secondAttribute="top" id="Awn-pT-IRP"/>
                             <constraint firstItem="qXb-4q-Q02" firstAttribute="bottom" secondItem="IPU-ag-Kj1" secondAttribute="bottom" id="DsH-D2-IQv"/>
-                            <constraint firstItem="x0c-eg-CeO" firstAttribute="centerX" secondItem="0qX-q8-0BZ" secondAttribute="centerX" id="ItU-OR-9Ki"/>
-                            <constraint firstItem="x0c-eg-CeO" firstAttribute="centerY" secondItem="0qX-q8-0BZ" secondAttribute="centerY" id="cnv-vD-U4U"/>
                             <constraint firstItem="IPU-ag-Kj1" firstAttribute="leading" secondItem="qXb-4q-Q02" secondAttribute="leading" id="uKX-BX-GHj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qXb-4q-Q02"/>
@@ -155,13 +159,16 @@
             </objects>
             <point key="canvasLocation" x="477.34375" y="-633.3984375"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Numbers!-->
         <scene sceneID="dy4-08-wAT">
             <objects>
-                <navigationController id="DY2-In-YZ1" sceneMemberID="viewController">
+                <navigationController title="Numbers!" definesPresentationContext="YES" id="DY2-In-YZ1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FdB-4b-AFj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="rrj-UO-4aq" kind="relationship" relationship="rootViewController" id="7EM-Hl-L19"/>

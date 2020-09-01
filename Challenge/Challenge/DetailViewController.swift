@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var currentViewControllerIndex: Int = 0
     
     override func viewDidLoad() {
-
+        
        configurePageViewController()
     }
     
