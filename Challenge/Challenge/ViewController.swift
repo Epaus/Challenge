@@ -34,7 +34,10 @@ class ViewController: UITableViewController {
     
      override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.autoresizesSubviews = true
+       
         NotificationCenter.default.addObserver(self, selector: #selector(showNetworkAlert), name: .noConnectivityNotification, object: nil)
+        
         self.clearsSelectionOnViewWillAppear = true
         self.splitViewController?.maximumPrimaryColumnWidth = UIScreen.main.bounds.width/2.0
        
@@ -44,6 +47,11 @@ class ViewController: UITableViewController {
             })
         })
     }
+    
+    override func viewWillLayoutSubviews() {
+           super.viewWillLayoutSubviews()
+           tableView.invalidateIntrinsicContentSize()
+       }
     
     @objc func showNetworkAlert() {
         
@@ -62,16 +70,6 @@ class ViewController: UITableViewController {
         
         self.splitViewController?.present(alert, animated: true)
     }
-    
-//    private func detectOrientation() {
-//         if UIDevice.current.orientation.isLandscape {
-//             print("Landscape")
-//            self.view.setNeedsLayout()
-//         } else {
-//             print("Portrait")
-//             navigationBar?.isHidden = false
-//         }
-//     }
     
      
      override internal func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -171,35 +169,34 @@ extension ViewController {
         }
     }
     
-    func turnOff(cell :MainTableViewCell) {
-        if cell.model?.isSelected == true {
-            cell.model?.isSelected = false
-        }
-        cell.contentView.backgroundColor = .white
-        //cell.highlightedState = false
-        cell.setNeedsLayout()
-    }
+     func turnOff(cell :MainTableViewCell) {
+           if cell.model?.isSelected == true {
+               cell.model?.isSelected = false
+           }
+           cell.contentView.backgroundColor = .white
+           cell.setNeedsLayout()
+       }
+       
+       func turnOn(cell : MainTableViewCell) {
+           if cell.model?.isSelected == false {
+               cell.model?.isSelected = true
+           }
+           cell.contentView.backgroundColor = .systemTeal
+           cell.setNeedsLayout()
+       }
     
 }
 extension ViewController: MasterViewUpdateProtocol {
     
     func updateCellHighlightAt(offIndex: Int, onIndex: Int) {
+        
         if let cell = tableView.cellForRow(at: IndexPath.init(item: offIndex, section: 0)) as? MainTableViewCell {
             turnOff(cell: cell)
-//            if cell.model?.isSelected == true {
-//                cell.model?.isSelected = false
-//            }
-//            cell.contentView.backgroundColor = .white
-//            cell.highlightedState = false
-//            cell.setNeedsLayout()
         }
         
         if let cell = tableView.cellForRow(at: IndexPath.init(item: onIndex, section: 0)) as? MainTableViewCell {
-            cell.model?.isSelected = true
+            turnOn(cell: cell)
             currentlySelectedCell = cell
-            cell.contentView.backgroundColor = .systemTeal
-           // cell.highlightedState = true
-            cell.setNeedsLayout()
         }
     }
     
