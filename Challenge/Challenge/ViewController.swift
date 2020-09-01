@@ -100,7 +100,6 @@ extension ViewController {
         let model = self.viewModel.list?[indexPath.row]
         
         cell?.model = model
-        print("name = \(String(describing: model?.name)), background color = \(String(describing: cell?.contentView.backgroundColor)) model.isSelected = \(String(describing: model?.isSelected)) cell.isSelected = \(String(describing: cell?.isSelected))")
         
         return cell ?? MainTableViewCell()
     }
