@@ -12,7 +12,8 @@ import UIKit
 class ViewController: UITableViewController {
     
     var viewModel: ViewModel
-    private var selectedModel: Model?
+    private var selectedModel: NumberModel?
+    private var currentlySelectedCell: MainTableViewCell?
     
     
     // MARK: - Lifecycle
@@ -76,14 +77,18 @@ extension ViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView .dequeueReusableCell(withIdentifier: ConstantText.cellId) as? MainTableViewCell
-        if (cell == nil) {
-            cell = MainTableViewCell.init(style: .default, reuseIdentifier: ConstantText.cellId)
-        }
-        let model = self.viewModel.list?[indexPath.row]
-        cell?.model = model
         
-        return cell ?? UITableViewCell()
+        var cell = tableView .dequeueReusableCell(withIdentifier: String(describing: MainTableViewCell.self)) as? MainTableViewCell
+        if (cell == nil) {
+            cell = MainTableViewCell.init(style: .default, reuseIdentifier: String(describing: MainTableViewCell.self))
+        }
+     
+        let model = self.viewModel.list?[indexPath.row]
+        
+        cell?.model = model
+        print("name = \(String(describing: model?.name)), background color = \(String(describing: cell?.contentView.backgroundColor)) model.isSelected = \(String(describing: model?.isSelected)) cell.isSelected = \(String(describing: cell?.isSelected))")
+        
+        return cell ?? MainTableViewCell()
     }
 }
    
@@ -100,7 +105,16 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+      print("didSelect---->>>>>")
+        if let currentCell = currentlySelectedCell {
+            print("currentCell = \(String(describing: currentCell.model?.name))")
+            turnOff(cell: currentCell)
+        }
+        
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+            cell.model?.isSelected = true
+            currentlySelectedCell = cell
+            
             if UIDevice.current.userInterfaceIdiom == .pad {
                 setIpadHighlight(forCell: cell)
             }
@@ -109,7 +123,7 @@ extension ViewController {
         selectedModel = self.viewModel.list?[indexPath.row]
         
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.detailVC) as! DetailViewController
+        let vc: DetailViewController = storyboard.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
         vc.viewModel = self.viewModel
         if vc.currentViewControllerIndex != indexPath.row {
             updateCellHighlightAt(offIndex: vc.currentViewControllerIndex, onIndex: indexPath.row)
@@ -122,24 +136,33 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+            cell.model?.isSelected = false
+            print("didDeselect ->name \(cell.model?.name), model.isSelected = \(cell.model?.isSelected)")
             if UIDevice.current.userInterfaceIdiom == .pad {
                 cell.contentView.backgroundColor = .white
-                cell.highlightedState = false
+               // cell.highlightedState = false
+                cell.setNeedsLayout()
             }
         }
     }
     
     private func setIpadHighlight(forCell cell: MainTableViewCell) {
-        if cell.isSelected == true {
-            if cell.highlightedState == false {
-                cell.contentView.backgroundColor = .systemTeal
-                cell.highlightedState = true
-            }
-            else if cell.highlightedState == true {
-                cell.contentView.backgroundColor = .white
-                cell.highlightedState = false
-            }
+        if cell.model?.isSelected == true {
+            cell.contentView.backgroundColor = .systemTeal
+           // cell.highlightedState = true
+        } else {
+            cell.contentView.backgroundColor = .white
+           // cell.highlightedState = false
         }
+    }
+    
+    func turnOff(cell :MainTableViewCell) {
+        if cell.model?.isSelected == true {
+            cell.model?.isSelected = false
+        }
+        cell.contentView.backgroundColor = .white
+        //cell.highlightedState = false
+        cell.setNeedsLayout()
     }
     
 }
@@ -147,14 +170,20 @@ extension ViewController: MasterViewUpdateProtocol {
     
     func updateCellHighlightAt(offIndex: Int, onIndex: Int) {
         if let cell = tableView.cellForRow(at: IndexPath.init(item: offIndex, section: 0)) as? MainTableViewCell {
-                 cell.contentView.backgroundColor = .white
-                 cell.highlightedState = false
-                 cell.setNeedsLayout()
-             }
+            turnOff(cell: cell)
+//            if cell.model?.isSelected == true {
+//                cell.model?.isSelected = false
+//            }
+//            cell.contentView.backgroundColor = .white
+//            cell.highlightedState = false
+//            cell.setNeedsLayout()
+        }
         
         if let cell = tableView.cellForRow(at: IndexPath.init(item: onIndex, section: 0)) as? MainTableViewCell {
+            cell.model?.isSelected = true
+            currentlySelectedCell = cell
             cell.contentView.backgroundColor = .systemTeal
-            cell.highlightedState = true
+           // cell.highlightedState = true
             cell.setNeedsLayout()
         }
     }

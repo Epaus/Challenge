@@ -13,7 +13,7 @@ class DataViewController: UIViewController {
     @IBOutlet weak var numberImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    var model: Model?
+    var model: NumberModel?
     var index = 0
     
     override func viewDidLoad() {
@@ -21,8 +21,8 @@ class DataViewController: UIViewController {
 
         if let mod = model {
             view.isHidden = false
-            self.nameLabel.text = mod.name ?? "no name given"
-            let url = (mod.imageUrl)! as NSString
+            self.nameLabel.text = mod.name 
+            let url = (mod.imageUrl) as NSString
             let secureUrl = NSString.secureUrl(url as String)
             self.numberImageView.downloadImage(withUrlString: secureUrl )
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Model : Codable {
+struct DTOModel : Codable {
     let name: String?
     let imageUrl: String?
     
@@ -17,8 +17,8 @@ struct Model : Codable {
            case imageUrl = "image"
        }
     
-    static func decode(data: Data) throws -> [Model] {
+    static func decode(data: Data) throws -> [DTOModel] {
         let decoder = JSONDecoder()
-        return try decoder.decode(Array<Model>.self, from: data)
+        return try decoder.decode(Array<DTOModel>.self, from: data)
     }
 }

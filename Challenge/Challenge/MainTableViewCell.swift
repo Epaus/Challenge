@@ -12,20 +12,23 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var numberImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     
-    var highlightedState: Bool = false
+   // var highlightedState: Bool = false
 
-    var model: Model? {
+    var model: NumberModel? {
         didSet {
             nameLabel.text = model?.name ?? "0"
-            let url = (model?.imageUrl! ?? "") as NSString   
+            let url = (model?.imageUrl ?? "") as NSString   
             let secureUrl = NSString.secureUrl(url as String)
             numberImageView.downloadImage(withUrlString: secureUrl )
         }
     }
     
     override func layoutSubviews() {
-        self.highlightedState = false
-        self.backgroundColor = .white
+        if (model?.isSelected == true) {
+            self.contentView.backgroundColor = .systemTeal
+        } else {
+            self.contentView.backgroundColor = .white
+        }
     }
     
     override func awakeFromNib() {
@@ -37,7 +40,7 @@ class MainTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        highlightedState = false
+        //highlightedState = false
         contentView.backgroundColor = .white
         super.prepareForReuse()
     }

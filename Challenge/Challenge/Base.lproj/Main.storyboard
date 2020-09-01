@@ -10,7 +10,7 @@
         <!--Detail View Controller-->
         <scene sceneID="e3k-y3-rjs">
             <objects>
-                <viewController storyboardIdentifier="detailVC" id="WOj-5N-zX7" customClass="DetailViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="WOj-5N-zX7" customClass="DetailViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0qX-q8-0BZ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,13 +98,13 @@
         <!--Numbers!-->
         <scene sceneID="5Jw-1q-9jZ">
             <objects>
-                <tableViewController storyboardIdentifier="mainVC" title="Numbers!" modalPresentationStyle="fullScreen" clearsSelectionOnViewWillAppear="NO" id="rrj-UO-4aq" customClass="ViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ViewController" title="Numbers!" modalPresentationStyle="fullScreen" clearsSelectionOnViewWillAppear="NO" id="rrj-UO-4aq" customClass="ViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iKu-cY-SG9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="100" id="7KQ-RV-HCm" customClass="MainTableViewCell" customModule="Challenge" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="100" id="7KQ-RV-HCm" customClass="MainTableViewCell" customModule="Challenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7KQ-RV-HCm" id="1MJ-28-Oaj">

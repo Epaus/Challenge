@@ -27,11 +27,11 @@ class Network {
     var method: Method { return .get }
    // private var task: URLSessionDataTask?
     
-    func makeRequest(urlString: String, completion:  @escaping (_ list: [Model])->Void) {
+    func makeRequest(urlString: String, completion:  @escaping (_ list: [DTOModel])->Void) {
         
         if (connectedToNetwork() == true) {
         
-        var models = [Model]()
+        var models = [DTOModel]()
         guard let url = URL(string: urlString) else { return }
         theURL = url
         var request = URLRequest(url: url)
@@ -55,10 +55,10 @@ class Network {
         
     }
 
-    func parseResponse(data: Data) -> [Model]? {
+    func parseResponse(data: Data) -> [DTOModel]? {
         print(data)
         do {
-            let response = try Model.decode(data: data)
+            let response = try DTOModel.decode(data: data)
             return response
             
         } catch {

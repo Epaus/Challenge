@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewModel = ViewModel.init(network: network)
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
-        let rootViewController:ViewController = storyboard.instantiateViewController(withIdentifier: ConstantText.mainVC) as! ViewController
+        let rootViewController:ViewController = storyboard.instantiateViewController(withIdentifier: String(describing: ViewController.self)) as! ViewController
         rootViewController.viewModel = viewModel
        
         self.window?.rootViewController = rootViewController

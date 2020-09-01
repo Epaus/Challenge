@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE682D2424F8C2FE00DDB1B7 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2324F8C2FE00DDB1B7 /* MainTableViewCell.swift */; };
 		CE682D2724F8C42700DDB1B7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2624F8C42700DDB1B7 /* UIImageView.swift */; };
-		CE682D2924F8CED700DDB1B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D2824F8CED700DDB1B7 /* Constants.swift */; };
 		CE682D6E24F9823100DDB1B7 /* NSString+NSString_secureURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */; };
 		CE682D7224FB401100DDB1B7 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE682D7124FB401100DDB1B7 /* SplitViewController.swift */; };
 		CE682D7524FB4ADA00DDB1B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE682D7424FB4ADA00DDB1B7 /* SystemConfiguration.framework */; };
@@ -34,6 +33,7 @@
 		CE8D6CA424F88D180061FB92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D6CA324F88D180061FB92 /* DetailViewController.swift */; };
 		CEF432F624FC9ABA00B0F0B4 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF432F524FC9ABA00B0F0B4 /* DataViewController.swift */; };
 		CEF432F824FC9CE800B0F0B4 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF432F724FC9CE800B0F0B4 /* CustomPageViewController.swift */; };
+		CEF432FC24FDC85C00B0F0B4 /* NumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF432FB24FDC85B00B0F0B4 /* NumberModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,6 @@
 /* Begin PBXFileReference section */
 		CE682D2324F8C2FE00DDB1B7 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		CE682D2624F8C42700DDB1B7 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		CE682D2824F8CED700DDB1B7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE682D6B24F9823100DDB1B7 /* Challenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Challenge-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE682D6C24F9823100DDB1B7 /* NSString+NSString_secureURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_secureURL.h"; sourceTree = "<group>"; };
 		CE682D6D24F9823100DDB1B7 /* NSString+NSString_secureURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_secureURL.m"; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		CE8D6CA324F88D180061FB92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CEF432F524FC9ABA00B0F0B4 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		CEF432F724FC9CE800B0F0B4 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		CEF432FB24FDC85B00B0F0B4 /* NumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8D6C9624F848830061FB92 /* ViewModel.swift */,
+				CEF432FB24FDC85B00B0F0B4 /* NumberModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 				CE8D6C6C24F845DA0061FB92 /* Info.plist */,
 				CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */,
 				CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */,
-				CE682D2824F8CED700DDB1B7 /* Constants.swift */,
 			);
 			name = "Project Files";
 			sourceTree = "<group>";
@@ -395,9 +395,9 @@
 				CE682D2424F8C2FE00DDB1B7 /* MainTableViewCell.swift in Sources */,
 				CE8D6C5F24F845D60061FB92 /* AppDelegate.swift in Sources */,
 				CEF432F624FC9ABA00B0F0B4 /* DataViewController.swift in Sources */,
-				CE682D2924F8CED700DDB1B7 /* Constants.swift in Sources */,
 				CE8D6C9024F8466C0061FB92 /* Network.swift in Sources */,
 				CE8D6C9724F848830061FB92 /* ViewModel.swift in Sources */,
+				CEF432FC24FDC85C00B0F0B4 /* NumberModel.swift in Sources */,
 				CE682D6E24F9823100DDB1B7 /* NSString+NSString_secureURL.m in Sources */,
 				CE8D6C6124F845D60061FB92 /* SceneDelegate.swift in Sources */,
 				CE8D6CA424F88D180061FB92 /* DetailViewController.swift in Sources */,
