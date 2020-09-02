@@ -4,6 +4,8 @@ This is a coding challenge involving multiple iOS skills such as universal app, 
 Notes:
 I have one  bug I was not yet able to fix.  If touch a row in the table (for example: "6" and then scroll down and touch a row, "18" - When you scroll back up, "6" is still highlighted.  This only happens for cells not in the same "view" ie, you have to scroll some to get from one to the other. Scrolling back down again and up will clear the "6."  When you swipe between the pages, the rows highlight appropriately.  However, you have to make sure you fully move to the next page, or it may not register.  
 
+Also, when the app opens in landscape, the master controller is 1/2 the width as described. When you move to portrait and touch the Numbers! (back button), the master controller displays smaller.  Rotating it to landscape will return to the 1/2 controller and the cells all correctly resize.
+
 The class names are intentionally simple in order to indicate their role in the project
 
 ViewModel
