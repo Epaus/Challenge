@@ -26,7 +26,7 @@ class ViewModel {
     }
     
     func getData(completion: @escaping (_ list: [NumberModel])->Void) {
-        network.makeRequest(urlString: "https://dev.tapptic.com/test/json.php") {results in
+        network.makeRequest(urlString: ConstantText.url()) {results in
             let list = self.getNumberModels(dtos: results)
             self.list = list
             completion(list)

@@ -11,13 +11,11 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var numberImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
-    
-   // var highlightedState: Bool = false
 
     var model: NumberModel? {
         didSet {
             nameLabel.text = model?.name ?? "0"
-            let url = (model?.imageUrl ?? "") as NSString   
+            let url = (model?.imageUrl ?? "") as String
             let secureUrl = NSString.secureUrl(url as String)
             numberImageView.downloadImage(withUrlString: secureUrl )
         }

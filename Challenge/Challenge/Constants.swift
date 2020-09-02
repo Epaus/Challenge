@@ -11,4 +11,11 @@ import Foundation
 struct ConstantText {
     static let master_tableview = "masterTableView"
     static let detail_view = "detailView"
+    
+    static func url()-> String {
+        let infoPlistDict = Bundle.main.infoDictionary
+        guard let  api: String = infoPlistDict?["API_ENDPOINT"] as? String  else { return ""}
+        return "https://" + api
+    }
+
 }

@@ -84,6 +84,7 @@
 		CE8D6C9D24F880AE0061FB92 /* responseWithMissingField.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = responseWithMissingField.json; sourceTree = "<group>"; };
 		CE8D6CA324F88D180061FB92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CEB90AA024FF098600E024E2 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		CEB90AAD24FF44C100E024E2 /* debugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debugConfig.xcconfig; sourceTree = "<group>"; };
 		CEF432F524FC9ABA00B0F0B4 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		CEF432FB24FDC85B00B0F0B4 /* NumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberModel.swift; sourceTree = "<group>"; };
 		CEF432FD24FEEC3A00B0F0B4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				CE8D6C5E24F845D60061FB92 /* AppDelegate.swift */,
 				CE8D6C6024F845D60061FB92 /* SceneDelegate.swift */,
 				CEF432FD24FEEC3A00B0F0B4 /* Constants.swift */,
+				CEB90AAD24FF44C100E024E2 /* debugConfig.xcconfig */,
 			);
 			name = "Project Files";
 			sourceTree = "<group>";
@@ -573,6 +575,7 @@
 		};
 		CE8D6C8624F845DA0061FB92 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB90AAD24FF44C100E024E2 /* debugConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
