@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-294.53125" y="8.7890625"/>
         </scene>
-        <!--Custom Page View Controller-->
+        <!--Page View Controller-->
         <scene sceneID="grm-Dp-4JF">
             <objects>
-                <pageViewController restorationIdentifier="CustomPageViewController" storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pd6-Pn-Mnw" customClass="CustomPageViewController" customModule="Challenge" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController restorationIdentifier="UIPageViewController" storyboardIdentifier="UIPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pd6-Pn-Mnw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiY-Gu-HlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="419" y="57"/>

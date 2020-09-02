@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     
     func configurePageViewController() {
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let pageViewController: CustomPageViewController = storyboard.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as! CustomPageViewController
+        let pageViewController: UIPageViewController = storyboard.instantiateViewController(withIdentifier: String(describing: UIPageViewController.self)) as! UIPageViewController
         pageViewController.delegate = self
         pageViewController.dataSource = self
         addChild(pageViewController)
