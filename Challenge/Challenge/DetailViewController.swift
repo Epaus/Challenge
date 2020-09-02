@@ -28,8 +28,6 @@ class DetailViewController: UIViewController {
         configurePageViewController()
     }
     
-    
-    
     func configurePageViewController() {
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let pageViewController: CustomPageViewController = storyboard.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as! CustomPageViewController
@@ -98,11 +96,6 @@ class DetailViewController: UIViewController {
         detectOrientation()
     }
     
-    @objc private func goBack() {
-           print("goBack")
-       }
-          
-    
 }
 
 extension DetailViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -150,7 +143,4 @@ extension DetailViewController: UIPageViewControllerDataSource, UIPageViewContro
         
         return nextController
     }
-    
 }
-
-

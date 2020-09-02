@@ -40,7 +40,6 @@ class MainTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        //highlightedState = false
         contentView.backgroundColor = .white
         super.prepareForReuse()
     }
