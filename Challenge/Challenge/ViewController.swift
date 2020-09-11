@@ -91,7 +91,6 @@ extension ViewController {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         var cell = tableView .dequeueReusableCell(withIdentifier: String(describing: MainTableViewCell.self)) as? MainTableViewCell
         if (cell == nil) {
             cell = MainTableViewCell.init(style: .default, reuseIdentifier: String(describing: MainTableViewCell.self))
@@ -145,14 +144,8 @@ extension ViewController {
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
-            cell.model?.isSelected = false
-
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                cell.contentView.backgroundColor = .white
-                cell.setNeedsLayout()
-            }
-        }
+        guard let model = self.viewModel.list?[indexPath.row] else { return }
+        model.isSelected = false
     }
     
     private func setIpadHighlight(forCell cell: MainTableViewCell) {
@@ -164,17 +157,13 @@ extension ViewController {
     }
     
      func turnOff(cell :MainTableViewCell) {
-           if cell.model?.isSelected == true {
-               cell.model?.isSelected = false
-           }
+           cell.model?.isSelected = false
            cell.contentView.backgroundColor = .white
            cell.setNeedsLayout()
        }
        
        func turnOn(cell : MainTableViewCell) {
-           if cell.model?.isSelected == false {
-               cell.model?.isSelected = true
-           }
+           cell.model?.isSelected = true
            cell.contentView.backgroundColor = .systemTeal
            cell.setNeedsLayout()
        }
